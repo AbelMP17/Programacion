@@ -1,0 +1,10 @@
+hola
+adios
+caballo
+cebolla
+coche
+avion
+moto
+bici
+portero
+delantero

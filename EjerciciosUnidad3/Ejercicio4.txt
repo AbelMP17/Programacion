@@ -1,0 +1,17 @@
+Ejercicio 4: 
+a) Se repite un salto, determinado
+b) Se repite la flexión x veces, indeterminado
+c) Se repite introducir un número x veces hasta que se ponga un 0, mixto
+d) Se repite escribir una frase en la pizarra 100 veces, determinado
+e) Se repite coger un artículo y mirar su precio 50 veces, determinado
+f) Se repite resolver una ecuación 20 veces, determinado
+g) Se repite mostrar un mensaje, determinado
+h) Se repite grabar un cd hasta x veces, indeterminado
+i) Se repite andar 1km y parar 15 veces, determinado
+j) Se repite hacer una copia al dia por x años, mixto
+k) Se repite comprar un artículo hasta que se me gaste x dinero, indeterminado
+l) Se repite descargar 1 byte hasta 5MB, determinado
+m) Se repite grabar 1 cd, mixto
+n) Se repite tirar un penalti, indeterminado
+o) Se repite hacer un ejercicio, indeterminado
+p) Se repite copiar y pegar una linea 5 veces, determinado
