@@ -21,7 +21,7 @@ public class JuegoNaves extends Escena{
     @Override
     protected void añadirObjetosIniciales() {
         super.añadir(new ControladorFinJuego());
-        super.añadir(new Fondo(2));
+        super.añadir(new Fondo(100));
         super.añadir(new Nave1(65,68,32));
         super.añadir(new Nave2(37,39,13));
         for(int i = 1 ; i<=4;i++){
@@ -31,7 +31,6 @@ public class JuegoNaves extends Escena{
                 super.añadir(new Enemigo1(acumX, acumY, 5));
             }
         }
-        
         for(int i = 1 ; i<=11;i++){
             int acumX = i*120;
             super.añadir(new Enemigo1(acumX, 620, 5));
