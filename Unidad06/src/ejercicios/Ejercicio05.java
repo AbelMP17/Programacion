@@ -135,24 +135,33 @@ public class Ejercicio05 extends javax.swing.JFrame {
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         String texto = txtJugador.getText();
+        
         int num1 = Integer.parseInt(texto);
         int num2 = Integer.parseInt(txtPuntos.getText());
+        
         String texto2 = "";
         int puntosSum = 10;
-        if(texto.equals("") || num1 < 1 && num1 >10 || texto.equals("0")){            
+        if(texto.matches("\\d{1,2}")){
+            if(texto.equals("") || num1 < 1 && num1 >10 || texto.equals("0")){            
+                num2 = num2-5;
+                texto2 = String.valueOf(num2);
+                txtPuntos.setText(texto2);
+                txtResultado.setText("Numero incorrecto.");
+            }else{
+                int random = new Random().nextInt(1, 11);
+                txtOrdenador.setText(String.valueOf(random));
+                if(txtJugador.getText().equals(txtOrdenador.getText())){
+                    txtResultado.setText("Gana el jugador");
+                    txtPuntos.setText(String.valueOf(num2+puntosSum));
+                }else{
+                    txtResultado.setText("Gana el ordenador.");
+                }
+            }
+        }else{
+            txtResultado.setText("Escribe un numero entre 1 y 10.");
             num2 = num2-5;
             texto2 = String.valueOf(num2);
             txtPuntos.setText(texto2);
-            txtResultado.setText("Numero incorrecto.");
-        }else{
-            int random = new Random().nextInt(1, 11);
-            txtOrdenador.setText(String.valueOf(random));
-            if(txtJugador.getText().equals(txtOrdenador.getText())){
-                txtResultado.setText("Gana el jugador");
-                txtPuntos.setText(String.valueOf(num2+puntosSum));
-            }else{
-                txtResultado.setText("Gana el ordenador.");
-            }
         }
     }//GEN-LAST:event_btnJugarActionPerformed
 
