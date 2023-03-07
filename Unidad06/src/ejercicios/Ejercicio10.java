@@ -4,6 +4,12 @@
  */
 package ejercicios;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usuario
@@ -42,6 +48,11 @@ public class Ejercicio10 extends javax.swing.JFrame {
         jLabel2.setText("Número:");
 
         btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
 
         chkVentanaEmergente.setText("Mostrar resultado en una ventana emergente");
 
@@ -89,6 +100,30 @@ public class Ejercicio10 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        if(txtNumero.getText().matches("[0-9]+")){
+            double num = Double.parseDouble(txtNumero.getText());
+            txtNumero.setText(String.valueOf(num));
+            int resultado = (int) Math.sqrt(num);
+            if(chkVentanaEmergente.isSelected()){
+                JOptionPane.showMessageDialog(this, "El resultado es: "+resultado, "Resultado.", JOptionPane.INFORMATION_MESSAGE);
+            }
+            if(chkArchivoTexto.isSelected()){
+                JFileChooser v = new JFileChooser();
+                v.showSaveDialog(this);
+                File archivo = v.getSelectedFile();
+                if(archivo!=null){
+                    try(PrintWriter pw = new PrintWriter(archivo)){
+                        pw.println("Resultado de la raiz cuadrada de "+num+" es: "+resultado);
+                    }catch(IOException error){
+                        JOptionPane.showMessageDialog(this, "Error al guardar el archivo.","Error",JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        }
+        
+    }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
      * @param args the command line arguments
