@@ -1,12 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package clase.clasesCine;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -42,6 +36,7 @@ public class frmCine extends javax.swing.JFrame {
     private void consultarSalaSeleccionada(){
         Sala s = getSalaSeleccionada();
         txtCapacidad.setText(String.valueOf(s.getCapacidad()));
+        txtNumeroPlazasLibres.setText(String.valueOf(s.getNumeroPlazasLibres()));
         txtPlazasLibres.setText(s.getPlazasLibres());
         ImageIcon iI = new ImageIcon(s.getPelicula().getFoto().getScaledInstance(240, 400, 0));
         lblCaratula.setIcon(iI);
@@ -91,6 +86,11 @@ public class frmCine extends javax.swing.JFrame {
         });
 
         btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
 
         lblCaratula.setBackground(new java.awt.Color(255, 255, 255));
         lblCaratula.setOpaque(true);
@@ -116,8 +116,18 @@ public class frmCine extends javax.swing.JFrame {
         });
 
         btnBuscarAsientoLibre.setText("Buscar uno libre");
+        btnBuscarAsientoLibre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarAsientoLibreActionPerformed(evt);
+            }
+        });
 
         btnReservarAsiento.setText("Reservar");
+        btnReservarAsiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReservarAsientoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -211,7 +221,7 @@ public class frmCine extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/*
     private void txtAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAsientoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAsientoActionPerformed
@@ -219,6 +229,25 @@ public class frmCine extends javax.swing.JFrame {
     private void cmbSalasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cmbSalasAncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbSalasAncestorAdded
+*/
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        consultarSalaSeleccionada();
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnBuscarAsientoLibreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAsientoLibreActionPerformed
+        if(getSalaSeleccionada().getNumeroPlazasLibres()==0){
+            JOptionPane.showMessageDialog(this,"No hay plazas libres para la sala seleccionada.", "Incidencia", JOptionPane.INFORMATION_MESSAGE);
+        }
+        txtAsiento.setText(String.valueOf(getSalaSeleccionada().buscarPlazaLibre()));
+    }//GEN-LAST:event_btnBuscarAsientoLibreActionPerformed
+
+    private void btnReservarAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarAsientoActionPerformed
+        if(!txtPlazasLibres.getText().contains(txtAsiento.getText())){
+            JOptionPane.showMessageDialog(this,"El asiento ya ha sido reservado.", "Incidencia", JOptionPane.INFORMATION_MESSAGE);
+        }
+        getSalaSeleccionada().reservar(Integer.parseInt(txtAsiento.getText()));
+        txtPlazasLibres.setText(getSalaSeleccionada().getPlazasLibres());
+    }//GEN-LAST:event_btnReservarAsientoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,6 +278,7 @@ public class frmCine extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new frmCine().setVisible(true);
             }

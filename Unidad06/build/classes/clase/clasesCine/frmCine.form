@@ -123,6 +123,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Consultar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCaratula">
       <Properties>
@@ -216,11 +219,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar uno libre"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarAsientoLibreActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnReservarAsiento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Reservar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReservarAsientoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

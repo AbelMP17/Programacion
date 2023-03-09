@@ -15,7 +15,9 @@ public class Sala {
         this.capacidad = c;
         this.pelicula = p;
         this.plazasLibres = new ArrayList<>();
-        
+        for(int i = 1;i<=getCapacidad();i++){
+            plazasLibres.add(i);
+        }
     }
 
     public int getNumero() {
@@ -41,6 +43,7 @@ public class Sala {
     public int getNumeroPlazasLibres() {
         return plazasLibres.size();
     }
+    
     public int buscarPlazaLibre(){
         if(plazasLibres.isEmpty()){
             new IllegalArgumentException("No hay ninguna plaza libre en la sala");
@@ -48,6 +51,7 @@ public class Sala {
         int num = new Random().nextInt(plazasLibres.size());
         return plazasLibres.get(num);
     }
+    
     public boolean reservar(int n){
         boolean esta = false;
         if(plazasLibres.contains(n)){
