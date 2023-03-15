@@ -14,7 +14,7 @@ import javax.imageio.ImageIO;
  */
 public class Nave2 extends Nave{
     public Nave2(int ti, int tde, int tdi) {
-        super(ti, tde, tdi, 3, CacheImagenes.getInstancia().getImage("../img/nave2.png"), 400, 1000);
+        super(ti, tde, tdi, 3, CacheImagenes.getInstancia().getImage("./nave2.png"), 400, 1000);
     }
 
     @Override

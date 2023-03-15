@@ -14,7 +14,7 @@ public class Enemigo1 extends Enemigo{
     private int velocidad;
 
     public Enemigo1(int x, int y, int v) {
-        super(CacheImagenes.getInstancia().getImage("../img/malo1.png"),x, y);
+        super(CacheImagenes.getInstancia().getImage("./malo1.png"),x, y);
         this.velocidad = v;
     }
     

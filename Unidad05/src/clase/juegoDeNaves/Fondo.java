@@ -1,23 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package clase.juegoDeNaves;
 
 import clase.Framework.*;
 import java.awt.*;
 
-/**
- *
- * @author abelm
- */
 public class Fondo extends GameObject{
     private Image imagen;
     private Rectangle camara;
     private int velocidadCamara;
     
     public Fondo(int vc){
-        this.imagen = CacheImagenes.getInstancia().getImage("../img/fondo.png");
+        this.imagen = CacheImagenes.getInstancia().getImage("./fondo.png");
         this.velocidadCamara = vc;
     }
     
@@ -39,5 +31,4 @@ public class Fondo extends GameObject{
     public void finalizar() {
         //no se hace nada
     }
-    
 }
