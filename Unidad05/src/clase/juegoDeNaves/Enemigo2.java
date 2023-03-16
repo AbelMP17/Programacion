@@ -8,7 +8,7 @@ public class Enemigo2 extends Enemigo{
     private double velocidad;
 
     public Enemigo2(int x, int y, int cx, int cy, int r, int v) {
-        super(CacheImagenes.getInstancia().getImage("./malo2.png"), x, y);
+        super(CacheImagenes.getInstancia().getImage("../img/malo2.png"), x, y);
         this.centroX = cx;
         this.centroY = cy;
         this.radio = r;

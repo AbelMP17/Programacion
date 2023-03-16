@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Nave1 extends Nave{
     public Nave1(int ti, int tde, int tdi) {
-        super(ti, tde, tdi, 5, CacheImagenes.getInstancia().getImage("./nave1.png"), 100, 1000);
+        super(ti, tde, tdi, 5, CacheImagenes.getInstancia().getImage("../img/nave1.png"), 100, 1000);
     }
 
     @Override

@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ejercicios.BDJava;
 
-/**
- *
- * @author usuario
- */
 import java.sql.*;
 import java.util.Scanner;
 
@@ -20,8 +12,18 @@ public class EjercicioAlumno1503 {
                                                             "root",
                                                             "")
                 ){
-            String sql = "SELECT * FROM ALUMNOS WHERE ciudad=?";
+            String sql = "SELECT * FROM ALUMNOS WHERE nombre=?";
             PreparedStatement ps = c.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String n = rs.getString("NOMBRE");
+                String ciudad = rs.getString("CIUDAD");
+                int id = rs.getInt("ID_ALUMNO");
+                
+                System.out.println(id+" : "+n+" : "+ciudad);
+            }
+            
         }catch(SQLException error){
             System.out.println("Error");
             System.out.println(error.getMessage());

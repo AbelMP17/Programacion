@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package clase.Framework;
 
 import bpc.daw.consola.*;
@@ -35,8 +39,9 @@ public abstract class Escena implements ElementoJuego{
 
     @Override
     public void ejecutarFrame() {
-        for (int i = 0; i < this.juegos.size(); i++) {
-            this.juegos.get(i).ejecutarFrame();
+        for(int i = 0 ; i<juegos.size() ; i++){
+            GameObject obj = juegos.get(i);
+            obj.ejecutarFrame();
         }
     }
 

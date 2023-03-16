@@ -8,7 +8,7 @@ public class Juego{
     private Escena escena;
     private boolean detener;
     private Resolucion resolucion;
-
+    
     public void iniciar(Escena e, Resolucion r){
         resolucion = r;
         detener = false;
