@@ -14,6 +14,7 @@ Si queremos que sea autoincrementado le pondremos @GeneratedValue
 */
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Corredor implements Serializable {
     @Id @GeneratedValue 
     private int id;

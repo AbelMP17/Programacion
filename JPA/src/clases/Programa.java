@@ -1,13 +1,55 @@
 package clases;
 
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Scanner;
+import java.time.*;
+import java.util.*;
 import javax.persistence.*;
 
 public class Programa {
-    // Vamos a modificar el nombre de Alvaro a Alvaro Manuel y ademas vamos a borrar el objeto con id 3
+    // main principal. Este main llama a los demas mains
     public static void main(String[] args) {
+        main7(args);
+    }
+
+    // Creamos un corredor de cada tipo
+    public static void main7(String[] args) {
+        EntityManager em = Persistence.createEntityManagerFactory("CARRERAS").createEntityManager();
+        
+        Corredor c = new Corredor("Manuel", LocalDate.of(2000, 2, 3));
+        Corredor c2 = new CorredorAmateur("Luis", LocalDate.of(2005, 1, 2), 29, 8);
+        Corredor c3 = new CorredorProfesional("Ismael", LocalDate.of(1998, 8, 12), 1, "IESHLanz");
+        
+        em.getTransaction().begin();
+        em.persist(c);
+        em.persist(c2);
+        em.persist(c3);
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    // vamos a consultar los corredores con el nombreque el usuario instroduzca por teclado
+    // usando una TypedQuery (invulnerable)
+    public static void main6(String[] args) {
+        EntityManager em = Persistence.createEntityManagerFactory("CARRERAS").createEntityManager();
+        System.out.print("Nombre del corredor: ");
+        String nombre = new Scanner(System.in).nextLine();
+        
+        TypedQuery<Corredor> consulta =  em.createNamedQuery(
+                "SELECT c FROM Corredor c WHERE c.name=?1",
+                Corredor.class
+        );
+        consulta.setParameter(1, nombre);
+        
+        List<Corredor> corredores= consulta.getResultList();
+        
+        for(Corredor i : corredores){
+            System.out.println(i.getNombre()+" "+i.getFechaNacimiento());
+        }
+        
+    }
+
+
+    // Vamos a modificar el nombre de Alvaro a Alvaro Manuel y ademas vamos a borrar el objeto con id 3
+    public static void main5(String[] args) {
         EntityManager em = Persistence.createEntityManagerFactory("CARRERAS").createEntityManager();
         
         Corredor alvaro = (Corredor) em.createQuery("SELECT c FROM Corredor c WHERE nombre = 'Alvaro'").getSingleResult();

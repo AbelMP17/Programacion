@@ -24,19 +24,19 @@
             <!-- variante de SQL que usará JPA para generar las consultas. Valores típicos para MySQL:
               * org.hibernate.dialect.MariaDB53Dialect
               * org.hibernate.dialect.MySQLDialect -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDB53Dialect"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <!-- indica si JPA deberá crear las tablas de la base de datos o adaptarse a una BD ya hecha
                 * create: JPA crea desde cero toda la base de datos (ojo: esto borra cualquier BD ya existente)
                 * update: JPA no borra nada, pero modifica la BD según lo crea conveniente (por ejemplo, si necesita crear nuevas tablas)
                 * none: JPA no hace nada e intentará adaptarse a las tablas de una BD ya existente
             -->
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <!-- indica si deberá mostrarse en el output el SQL generado por JPA -->
             <property name="hibernate.show_sql" value="true"/>
             <!-- nombre de usuario para acceder a la BD -->
-            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.user" value="programacion"/>
             <!-- contraseña del usuario -->
-            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.password" value="java"/>
         </properties>
     </persistence-unit>
 </persistence>
