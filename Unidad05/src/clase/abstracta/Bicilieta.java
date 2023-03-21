@@ -10,7 +10,7 @@ public class Bicilieta extends Vehiculo{
         timbre= t;
     }
     @Override
-    public void mover(int x, int y) {
-        System.out.println("La bicicleta se mueve al punto: "+x+", "+y);
+    public void mover(Point point) {
+        System.out.println("La bicicleta se mueve al punto: "+point.mx+", "+point.my);
     } 
 }

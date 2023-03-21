@@ -25,5 +25,5 @@ public abstract class Vehiculo {
         return i;
     }
     
-    public abstract void mover(int x, int y);
+    public abstract void mover(Point point);
 }
