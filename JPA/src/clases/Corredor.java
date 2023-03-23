@@ -26,23 +26,36 @@ public class Corredor implements Serializable {
     //Constructor vacio
     public Corredor(){
     }
-    
+    /**
+     * 
+     * @param n Nombre del corredor
+     * @param fn Fecha nacimiento del corredor
+     */
     // Este constructor crea un corredor con el nombre y fechaNacimiento pasados como parametro
     // El id se autoincrementa
     public Corredor(String n, LocalDate fn){
         this.nombre = n;
         this.fechaNacimiento = fn;
     }
-    
+    /**
+     * 
+     * @return devuelve el id del corredor
+     */
     //Getters y Setters
     public int getId() {
         return id;
     }
-
+    /**
+     * 
+     * @param id Pones id al corredor
+     */
     public void setId(int id) {
         this.id = id;
     }
-
+    /**
+     * 
+     * @return Devulve el nombre del corredor
+     */
     public String getNombre() {
         return nombre;
     }

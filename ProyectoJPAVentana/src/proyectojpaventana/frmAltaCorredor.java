@@ -19,7 +19,6 @@ public class frmAltaCorredor extends javax.swing.JFrame {
      */
     public frmAltaCorredor() {
         initComponents();
-        setLocationRelativeTo(null);
         habilitarAmateur();
         habilitarProfesional();
     }
