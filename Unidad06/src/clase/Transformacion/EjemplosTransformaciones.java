@@ -105,5 +105,21 @@ public class EjemplosTransformaciones {
         // Transformacion que escriba en la pantalla el mensaje hoy es jueves
         Runnable t16 = () -> System.out.println("hoy es "+LocalDate.now());
         t16.run();
+        
+        
+        // Haz un transformacion que convierte una persona en true si es mayor de edad
+        Predicate<Persona> t17 = p -> p.getEdad()>=18;
+        System.out.println(t17.test(new Persona("Pepe",18)));
+        
+        // Transformacion que coge dos numeros y los convierte en su suma
+        BiFunction<Integer,Integer,Integer> t18 = (a,b) -> a+b;
+        
+        //Transformacion que recibe una persona en numero y la transfoma en true si la persona tiene mas edad que el numero
+        BiPredicate<Persona,Integer> t19 = (p,n) -> p.getEdad()>n;
+        
+
+        //Transformacion que recibe una fecha y una hora y la muestra por pantalla
+        BiConsumer<LocalDate,LocalTime> t20 = (ld,lt) -> System.out.println(ld+" "+lt);
+        
     }
 }
