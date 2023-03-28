@@ -14,12 +14,15 @@ public class JefeEstudios extends EmpleadoColegio{
     }
     @Override
     public void recibirCalificacion(Profesor p, Alumno a, Nota nota) {
-        int contador = 0;
+        metodoExposicion(p, nota);
+    }
+	private void metodoExposicion(Profesor p, Nota nota) {
+		int contador = 0;
         if(nota.getValoracion().esSuspenso()){
             contador++;
             notasAsignaturas.put(p.getAsignatura(), contador);
         }
-    }
+	}
     
     public int getNumeroSuspensos(String asignatura){
         if(!notasAsignaturas.containsKey(asignatura)){

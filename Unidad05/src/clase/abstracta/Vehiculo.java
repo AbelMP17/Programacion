@@ -7,10 +7,10 @@ public abstract class Vehiculo {
     private int velocidadMaximaReglamentaria;
     private Color color;
     
-    public Vehiculo(int numeroPlazas, int vm, Color c){
-        this.pasajeros = new String[numeroPlazas];
-        this.velocidadMaximaReglamentaria = vm;
-        this.color = c;
+    public Vehiculo(VehiculoParameter parameterObject){
+        this.pasajeros = new String[parameterObject.numeroPlazas];
+        this.velocidadMaximaReglamentaria = parameterObject.vm;
+        this.color = parameterObject.c;
     }
     public void añadirPasajero(String nombre, int sitio){
         this.pasajeros[sitio] = nombre;
@@ -20,6 +20,8 @@ public abstract class Vehiculo {
         for(String p : pasajeros){
             if(p!=null){
                 i++;
+                String frase = "holaaa";
+				System.out.println(frase);
             }
         }
         return i;

@@ -3,22 +3,24 @@ package clase.Colegio;
 import java.util.*;
 
 public class DirectorColegio extends EmpleadoColegio{
-    private List<Nota> notasColegio;
-    public DirectorColegio(String nombre, String colegio){
-       super(nombre, colegio);
-       notasColegio = new ArrayList<>();
-    }
-    
-    @Override
+    public static class DirectorColegioData {
+		public List<Nota> notasColegio;
+
+		public DirectorColegioData() {
+		}
+	}
+
+	private DirectorColegioData data = new DirectorColegioData();
+	@Override
     public void recibirCalificacion(Profesor p, Alumno a, Nota nota) {
-        notasColegio.add(nota);
+        data.notasColegio.add(nota);
     }
     
     public double getNotaMediaColegio(){
         double suma = 0;
-        for(Nota n : notasColegio){
+        for(Nota n : data.notasColegio){
             suma += n.valorNumerico();
         }
-        return suma/notasColegio.size();
+        return suma/data.notasColegio.size();
     }
 }
