@@ -1,6 +1,7 @@
 package clases.ejercicios.delfin;
-public class Curar implements PowerUp{
 
+public class Curar implements PowerUp{
+    
     @Override
     public String getNombre() {
         //throw new UnsupportedOperationException("Not supported yet."); 

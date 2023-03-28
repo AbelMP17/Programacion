@@ -1,5 +1,9 @@
 
 package clases.ejercicios.delfin;
+/**
+ * 
+ * @author Abel Martínez Peinado
+ */
 public class Personaje {
     private String nombre;
     public int puntosVida;
@@ -7,6 +11,10 @@ public class Personaje {
     public int puntosDefensa;
     public int mana;
     
+    /**
+     * 
+     * @param n Nombre del personaje
+     */
     public Personaje(String n){
         this.nombre = n;
         this.puntosAtaque = 50;
@@ -14,11 +22,17 @@ public class Personaje {
         this.puntosDefensa = 40;
         this.mana = 100;
     }
-
+    /**
+     * 
+     * @return Devuelve el nombre del personaje
+     */
     public String getNombre() {
         return nombre;
     }
-
+    /**
+     * 
+     * @param nombre Se introduce el nombre del personaje
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
