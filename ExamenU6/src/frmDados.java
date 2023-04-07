@@ -468,22 +468,34 @@ public class frmDados extends javax.swing.JFrame {
         
         if(Integer.parseInt(txtApuestaJugador1.getText())<numSum && Integer.parseInt(txtApuestaJugador1.getText()) > Integer.parseInt(txtApuestaJugador2.getText())){
             JOptionPane.showMessageDialog(this, "Jugador 1 gana.", "Ganador", JOptionPane.INFORMATION_MESSAGE);
+            txtPuntosJugador1.setText(String.valueOf(Integer.parseInt(txtPuntosJugador1.getText())+1));
+            btnJugarDadosActionPerformed(evt);
         }else if(Integer.parseInt(txtApuestaJugador2.getText())<numSum && Integer.parseInt(txtApuestaJugador2.getText()) > Integer.parseInt(txtApuestaJugador1.getText())){
             JOptionPane.showMessageDialog(this, "Jugador 2 gana.", "Ganador", JOptionPane.INFORMATION_MESSAGE);
+            txtPuntosJugador2.setText(String.valueOf(Integer.parseInt(txtPuntosJugador2.getText())+1));
+            btnJugarDadosActionPerformed(evt);
         }
         
         if(Integer.parseInt(txtApuestaJugador1.getText())>numSum && Integer.parseInt(txtApuestaJugador2.getText())>numSum){
             JOptionPane.showMessageDialog(this, "Los dos os pasais. Sigue lanzando los dados.", "Nadie gana.", JOptionPane.INFORMATION_MESSAGE);
         }else if(Integer.parseInt(txtApuestaJugador1.getText())>numSum && Integer.parseInt(txtApuestaJugador2.getText())<numSum){
             JOptionPane.showMessageDialog(this, "Jugador 1 gana.", "Ganador.", JOptionPane.INFORMATION_MESSAGE);
+            txtPuntosJugador1.setText(String.valueOf(Integer.parseInt(txtPuntosJugador1.getText())+1));
+            btnJugarDadosActionPerformed(evt);
         }else if(Integer.parseInt(txtApuestaJugador1.getText())<numSum && Integer.parseInt(txtApuestaJugador2.getText())>numSum){
             JOptionPane.showMessageDialog(this, "Jugador 2 gana.", "Ganador.", JOptionPane.INFORMATION_MESSAGE);
+            txtPuntosJugador2.setText(String.valueOf(Integer.parseInt(txtPuntosJugador2.getText())+1));
+            btnJugarDadosActionPerformed(evt);
         }
         
         if(numSum==Integer.parseInt(txtApuestaJugador1.getText())){
             JOptionPane.showMessageDialog(this, "Jugador 1 gana.", "Ganador", JOptionPane.INFORMATION_MESSAGE);
+            txtPuntosJugador1.setText(String.valueOf(Integer.parseInt(txtPuntosJugador1.getText())+1));
+            btnJugarDadosActionPerformed(evt);
         }else if(numSum==Integer.parseInt(txtApuestaJugador2.getText())){
             JOptionPane.showMessageDialog(this, "Jugador 2 gana.", "Ganador", JOptionPane.INFORMATION_MESSAGE);
+            txtPuntosJugador2.setText(String.valueOf(Integer.parseInt(txtPuntosJugador2.getText())+1));
+            btnJugarDadosActionPerformed(evt);
         }
     }//GEN-LAST:event_btnLanzarDadosActionPerformed
 

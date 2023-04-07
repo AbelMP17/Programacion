@@ -64,11 +64,11 @@ public class Ejercicio46 {
             for(nivel = 1;movimientos>0;nivel++){
                 
                 
-                double x = rnd.nextInt(2, 50);
-                double y = rnd.nextInt(2, 35);
+                double x = rnd.nextInt(2,40);
+                double y = rnd.nextInt(2, 30);
                                 
                 CapaTexto tesoro = cons.getCapaTexto();
-                tesoro.setColorTexto(Color.yellow);
+                tesoro.setColorTexto(Color.black);
                 tesoro.print((int)y,(int)x , "$");
                 
                 for(movimientos = movimientos; movimientos>0 && encontrado;movimientos--){
